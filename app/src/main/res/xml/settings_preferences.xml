@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.preference.Preference
+        app:title="Language"
+        app:summary="Change the language"
+        app:key="pref_change_language"/>
+
+    <androidx.preference.SwitchPreferenceCompat
+        app:disableDependentsState="false"
+        app:title="Release Reminder"
+        app:switchTextOn="Reminder showing the movie that release today"
+        app:switchTextOff="Reminder showing the movie that release today"
+        app:key="pref_release_reminder" />
+
+    <androidx.preference.SwitchPreferenceCompat
+        app:disableDependentsState="false"
+        app:title="Daily Reminder"
+        app:switchTextOn="Reminder for return to app"
+        app:switchTextOff="Reminder for return to app"
+        app:key="pref_daily_reminder" />
+
+</androidx.preference.PreferenceScreen>

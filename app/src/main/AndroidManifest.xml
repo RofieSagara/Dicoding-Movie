@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sagara.dicodingmovie">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <permission android:name="com.sagara.dicodingmovie.READ_DATABASE"
+        android:protectionLevel="normal"/>
+    <permission android:name="com.sagara.dicodingmovie.WRITE_DATABASE"
+        android:protectionLevel="normal"/>
+
+    <application
+        android:name=".Application"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <receiver android:name=".ui.widget.FavoriteWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/favorite_widget_info" />
+        </receiver>
+
+        <activity android:name=".ui.search.SearchActivity" />
+        <activity android:name=".ui.favorite.FavoriteActivity" />
+        <activity android:name=".ui.settings.SettingsActivity" />
+        <activity android:name=".ui.details.DetailsActivity" />
+        <activity android:name=".ui.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".ui.widget.remoteview.StackWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
+
+        <provider
+            android:name=".provider.FavoriteProvider"
+            android:authorities="com.sagara.dicodingmovie"
+            android:exported="true"
+            android:readPermission="com.sagara.dicodingmovie.READ_DATABASE"
+            android:writePermission="com.sagara.dicodingmovie.WRITE_DATABASE" />
+    </application>
+
+</manifest>
